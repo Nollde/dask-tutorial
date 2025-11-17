@@ -10,7 +10,7 @@ import urllib.request
 import pandas as pd
 import dask.array as da
 
-DATASETS = ["random", "flights", "all"]
+DATASETS = ["random", "flights", "higgs", "all"]
 here = os.path.dirname(__file__)
 data_dir = os.path.abspath(os.path.join(here, "data"))
 
@@ -121,12 +121,27 @@ def random_array(small=None):
     print("** Created random data for array exercise in {:0.2f}s".format(t1 - t0))
 
 
+def higgs():
+    import gdown
+    ids = [
+        "1hURgLBbaCsqGgm8f_bhUBg_4NwLy-Yyx",
+        "1BNynS7Mh-5A1bJ2vy0qm4aT5D35cEEdu",
+        "1Vkt0VRX_jf0PcSMJexPntdMgzh8Qjn5L",
+        "1FfMS2dePfN0mFOvAbc-auuN9Q2kObyv0",
+    ]
+
+    for i, id in enumerate(ids):
+        output = os.path.join(data_dir, "higgs", f"higgs_{i}.csv")
+        gdown.download(id=id, output=output)
+
 def main(args=None):
     args = parse_args(args)
     if args.dataset == "random" or args.dataset == "all":
         random_array(args.small)
     if args.dataset == "flights" or args.dataset == "all":
         flights(args.small)
+    if args.dataset == "higgs" or args.dataset == "all":
+        higgs()
 
 
 if __name__ == "__main__":

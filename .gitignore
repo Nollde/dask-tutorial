@@ -14,6 +14,7 @@ data/holidays
 data/nycflights
 data/myfile.zarr
 data/accounts.parquet
+data/higgs
 dask-worker-space/
 profile.html
 log
