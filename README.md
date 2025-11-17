@@ -16,8 +16,8 @@ They are, in order of preference:
 
 In the main repo directory
 
-    conda env create -f env.yml
-    conda activate dask_tutorial
+    conda env create -f environment.yml
+    conda activate dask-tutorial
 
 ### Launch Jupyter
 
